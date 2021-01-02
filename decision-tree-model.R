@@ -1,7 +1,4 @@
-#DATA 630 Assignment 3
-#Written by Karishma Mathur
-#Professor Bati
-#Due July 7, 2020
+#This script is implementing a decision tree analysis on the dataset
 
 #Set working directory to where file is located
 
