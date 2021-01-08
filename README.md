@@ -76,7 +76,11 @@ The code guides you through the following:
 <!-- CONCLUSION -->
 ## Conclusion
 
-The below table calculates each of these based off the training data confusion matrix and the test data confusion matrix.  The true positive will be used as the number of couples who are not using contraception and the true negative will be used as the number of those using both long-term and short-term contraception.  Every percentage of each of the evaluation methods in the table show a decrease between the training data and test data.  If the model starts off overfitting on the training data, it will not generalize well for new unseen data, like the test data.  Every dataset going forth that uses this model will have a similar outcome – low classification accuracy and other low evaluation metrics.	
+The code results in the below decision tree ultimately.  It shows 8 terminal nodes and a vector representing the proportion of instances in the node that have each of the three class values.  For example, terminal node 6 states that 91 instances apply to this exact classification.  50.5% married woman out of the 91 do not use contraception, 16.5% use long-term contraception, and 3.3% use short-term contraception.
+
+<img src="images/decision_tree.JPG" alt="decision_tree">
+
+Furthermore, the below table calculates each of the model evaluation methods based off the training data confusion matrix and the test data confusion matrix.  The true positive will be used as the number of couples who are not using contraception and the true negative will be used as the number of those using both long-term and short-term contraception.  Every percentage of each of the evaluation methods in the table show a decrease between the training data and test data.  If the model starts off overfitting on the training data, it will not generalize well for new unseen data, like the test data.  Every dataset going forth that uses this model will have a similar outcome – low classification accuracy and other low evaluation metrics.	
 
 <img src="images/table.JPG" alt="table">
 
