@@ -44,11 +44,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-We will be speaking into a Burn Study dataset and deciphering association rules between each of the variables.  Association analysis or mining is used to discover relationships within a dataset to help analysts understand the behavior and utilize the knowledge to make key decisions. The Apriori Algorithm of Agrawal and Srikant is the most popular method used to do this, and we will be applying this method.  We want to analyze, evaluate, and capture the results of these association rules with the burn study dataset in order to make informed decisions.
+We will be speaking into a survey conducted by the National Indonesia Contraceptive Prevalence in 1987.  The survery requested married women who were either not pregnant or did not know if they were at the time to participate.  We want to predict the current contraceptive method choice of a woman in this dataset based on her demographic and socio-economic characteristics.  The choices are either no use, long-term methods, or short-term methods.  We will be using a decision tree model, which predict outcomes through classification rules.  It distills data into knowledge by taking a set of unfamiliar data and extracting rules. 
 
-The problem is to predict the current contraceptive method choice of a woman in this dataset based on her demographic and socio-economic characteristics.  The choices are either no use, long-term methods, or short-term methods.
-
-Here is a [link](https://github.com/lbraglia/aplore3/blob/master/rawdata/BURN/BURN_Code_Sheet.pdf) to the Burn Study dataset information.
+Here is a [link](https://archive.ics.uci.edu/ml/datasets/Contraceptive%20Method%20Choice) to the Contraceptive Method Choice dataset information.
 
 ### Built With
 
@@ -59,7 +57,7 @@ Here is a [link](https://github.com/lbraglia/aplore3/blob/master/rawdata/BURN/BU
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running, download the `apriori_burn.R` and the text input file, `burn.csv`. Then run the code in an IDE software, such as RStudio.  Set the working directory to the location of the CSV file.
+To get a local copy up and running, download the `decision-tree-model.R` and the text input file, `cmc.csv`. Then run the code in an IDE software, such as RStudio.  Set the working directory to the location of the CSV file.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -69,17 +67,20 @@ The code guides you through the following:
 1. Importing the CSV file
 2. Visualizing the formatting of the variables (datatypes, number of rows/columns, measures of central tendancy, statistical descriptions, etc.)
 3. Exploring through histograms to find interesting variables
-4. Pre-processing such as cleanup, reduction, and transformation (we removed key identifiers due to no added value, perfomed discretization, and factoring)
-5. Perform the Apriori Algorithm, generate rules, and inspect those rules
+4. Pre-processing such as transformation and installing decision tree packages (we removed factored categorical variables)
+5. Set the seed to allow for reproducability and split the dataset into a training set and test set
+5. Perform the decision tree model and evaluate the confusion matrix
 6. Change parameters to improve accuracy
-7. Visualize our rules using a matrix plot
+7. Compare model evaluation methods such as sensitivity, specificity, positive prediction value, negative prediction value, and prevalence of the data
 
 <!-- CONCLUSION -->
 ## Conclusion
 
-The below plot shows the antecedents and the y-axis shows the 2 consequents.  The lift ratio color key on the right side of the plot shows dark red as the highest lift ratio, or the strongest rule, and the lightest red as the lowest lift ratio, or the weaker rule.  However, the “weaker” rule here has a lift ratio above 1, which is still quite strong.  What can be seen here is that the strongest rules apply to burns not caused by flames, since the darkest red is showing in the top half of the graph.  The “weakest” rule applies to burns caused by flames, since the lightest color is on the bottom half of the graph.  It is interesting to see a greater number of correlations for non-flame related burns, which is very telling.  The individuals in this dataset needed to visit a burn facility due to either not seeing flames and accidentally burning themselves or not realizing something was highly flammable and burning themselves.  Thus, I would assume that a majority of burns occur by accident.
+The below table calculates each of these based off the training data confusion matrix and the test data confusion matrix.  The true positive will be used as the number of couples who are not using contraception and the true negative will be used as the number of those using both long-term and short-term contraception.  Every percentage of each of the evaluation methods in the table show a decrease between the training data and test data.  If the model starts off overfitting on the training data, it will not generalize well for new unseen data, like the test data.  Every dataset going forth that uses this model will have a similar outcome – low classification accuracy and other low evaluation metrics.	
 
-<img src="images/apriori.JPG" alt="apriori">
+<img src="images/table.JPG" alt="table">
+
+Education, being of the highest significance and our first assumption for the likelihood of contraception use, may have played a part in the level of accuracy of the model.  However, due to the model being extremely overfit, proper outcomes were difficult to come by.  Additionally, it was interesting to start off with the fact that the survey gave no option for a husband to not be holding an occupation.  For instance, if the wife was working a job, then we do not know if the husband also was working or was not.  This is a factor that we were not able to consider due to the lack of data in the dataset.
 
 <!-- CONTACT -->
 ## Contact
@@ -94,4 +95,4 @@ Project Link: [https://github.com/Mathurkarishma/indonesian-contraception-in-198
 ## Acknowledgements
 
 * Dr. Firdu Bati at [University of Maryland, Global Campus](https://www.umgc.edu/) - Fall 2019 </br >
-* [Burn Study Dataset Description](https://github.com/lbraglia/aplore3/blob/master/rawdata/BURN/BURN_Code_Sheet.pdf)
+* [Contraceptive Method Choice Dataset Description](https://archive.ics.uci.edu/ml/datasets/Contraceptive%20Method%20Choice)
